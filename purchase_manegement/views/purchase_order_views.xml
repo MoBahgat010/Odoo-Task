@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_purchase_order_form_inherit_department" model="ir.ui.view">
+        <field name="name">purchase.order.form.inherit.department</field>
+        <field name="model">purchase.order</field>
+        <field name="inherit_id" ref="purchase.purchase_order_form"/>
+        <field name="arch" type="xml">
+            <!-- Add department_id field after partner_id -->
+            <xpath expr="//field[@name='partner_id']" position="after">
+                <field name="department_id" widget="many2one" options="{'no_open': True}" string="Department"/>
+            </xpath>
+            
+            <!-- Add department_id column to order lines -->
+            <xpath expr="//field[@name='order_line']/list/field[@name='product_id']" position="after">
+                <field name="department_id" widget="many2one"/>
+            </xpath>
+            
+            <!-- Keep your existing widget -->
+            <xpath expr="//field[@name='order_line']" position="attributes">
+                <attribute name="widget">one2many_list</attribute>
+            </xpath>
+        </field>
+    </record>
+</odoo>
