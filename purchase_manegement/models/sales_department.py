@@ -1,4 +1,3 @@
-# custom_purchase_attributes/models/sales_department.py
 from odoo import models, fields
 
 class SalesDepartment(models.Model):

@@ -5,17 +5,14 @@
         <field name="model">sale.order</field>
         <field name="inherit_id" ref="sale.view_order_form"/>
         <field name="arch" type="xml">
-            <!-- Add department_id field after customer -->
             <xpath expr="//field[@name='partner_id']" position="after">
                 <field name="department_id" widget="many2one" options="{'no_open': True}" string="Department"/>
             </xpath>
             
-            <!-- Add department_id column to order lines -->
             <xpath expr="//field[@name='order_line']//list//field[@name='product_id']" position="after">
                 <field name="department_id" widget="many2one"/>
             </xpath>
             
-            <!-- Keep your existing widget -->
             <xpath expr="//field[@name='order_line']" position="attributes">
                 <attribute name="widget">one2many_list</attribute>
             </xpath>

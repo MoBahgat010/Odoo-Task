@@ -1,4 +1,3 @@
-# custom_invoice_attributes/models/sales_department.py
 from odoo import models, fields
 
 class SalesDepartment(models.Model):

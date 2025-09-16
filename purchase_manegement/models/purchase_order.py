@@ -1,4 +1,3 @@
-# custom_purchase_attributes/models/purchase_order.py
 from odoo import models, fields
 
 class PurchaseOrder(models.Model):

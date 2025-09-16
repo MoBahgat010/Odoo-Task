@@ -1,4 +1,3 @@
-# custom_invoice_attributes/models/account_move.py
 from odoo import models, fields
 
 class AccountMove(models.Model):

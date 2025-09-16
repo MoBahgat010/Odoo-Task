@@ -1,4 +1,3 @@
-# custom_sales_attributes/models/sale_order.py
 from odoo import models, fields
 
 class SaleOrder(models.Model):
