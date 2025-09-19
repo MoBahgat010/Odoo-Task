@@ -1,0 +1,4 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_simple_asset_user,simple.asset.user,model_simple_asset,base.group_user,1,1,1,1
+access_simple_asset_transfer_user,simple.asset.transfer.user,model_simple_asset_transfer,base.group_user,1,1,1,1
+access_simple_asset_transfer_wizard_user,simple.asset.transfer.wizard.user,model_simple_asset_transfer_wizard,base.group_user,1,1,1,1

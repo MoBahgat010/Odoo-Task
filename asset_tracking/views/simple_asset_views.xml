@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_simple_asset_list" model="ir.ui.view">
+        <field name="name">simple.asset.list</field>
+        <field name="model">simple.asset</field>
+        <field name="arch" type="xml">
+            <list>
+                <field name="name"/>
+                <field name="barcode"/>
+                <field name="serial_number"/>
+                <field name="employee_id"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_simple_asset_form" model="ir.ui.view">
+        <field name="name">simple.asset.form</field>
+        <field name="model">simple.asset</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <button name="simple_asset_tracking.action_asset_transfer_wizard" type="action" string="Transfer" context="{'default_asset_id': id}"/>
+                </header>
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="barcode"/>
+                        <field name="serial_number"/>
+                        <field name="employee_id"/>
+                    </group>
+                    <notebook>
+                        <page string="Transfer History">
+                            <field name="transfer_ids">
+                                <list>
+                                    <field name="from_employee_id"/>
+                                    <field name="to_employee_id"/>
+                                    <field name="date"/>
+                                </list>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids"/>
+                    <field name="activity_ids"/>
+                    <field name="message_ids"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_simple_asset" model="ir.actions.act_window">
+        <field name="name">Assets</field>
+        <field name="res_model">simple.asset</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+    <menuitem id="menu_simple_asset_root" name="Asset Tracking" sequence="5"/>
+    <menuitem id="menu_simple_asset" name="Assets" action="action_simple_asset" parent="menu_simple_asset_root" sequence="10"/>
+</odoo>
