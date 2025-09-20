@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="asset_list_view" model="ir.ui.view">
+        <field name="name">custom.asset.list</field>
+        <field name="model">custom.asset</field>
+        <field name="arch" type="xml">
+            <list>
+                <field name="name"/>
+                <field name="asset_id"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="asset_form_view" model="ir.ui.view">
+        <field name="name">custom.asset.form</field>
+        <field name="model">custom.asset</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="asset_id"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="asset_action" model="ir.actions.act_window">
+        <field name="name">Assets</field>
+        <field name="res_model">custom.asset</field>
+        <field name="view_mode">list,form</field>
+    </record>
+</odoo>
